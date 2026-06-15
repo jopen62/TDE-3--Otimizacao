@@ -57,11 +57,15 @@ def fitness(individual, X, y):
     feature_ratio = len(selected) / 784
     return 0.9 * acc + 0.1 * (1 - feature_ratio)
 
+#funçao torneio
+def selecao_torneio(population, fitnesses, k=TORNEIO_SIZE):
+    indice_disputa = np.random.randint(0, len(population), size=k)
+    melhor_indice = indices_disputa[np.argmax(fitness[indices_disputa])]
+    return population[melhor_indice]
 
-# ==========================
+
+
 # GA
-# ==========================
-
 def executar_ga(X, y):
     population = np.random.randint(
         0,
